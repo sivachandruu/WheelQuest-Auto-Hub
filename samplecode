@@ -1,0 +1,312 @@
+import React from 'react'; 
+import { Link } from 'react-router-dom'; 
+import { ArrowRight, CheckCircle, Shield, Award, MapPin, TrendingUp } from 'lucide-react'; 
+ 
+const HomePage: React.FC = () => { 
+  const features = [ 
+    { 
+      icon: Shield, 
+      title: 'Verified Reports', 
+      description: 'Every car comes with professional OBD-II scan reports from certified 
+workshops', 
+    }, 
+    { 
+      icon: Award, 
+      title: 'Trusted Mechanics', 
+      description: 'Network of verified workshops providing transparent car health assessments', 
+    }, 
+    { 
+      icon: MapPin, 
+      title: 'Nearby Workshops', 
+      description: 'Find certified mechanics in your area for instant car verification', 
+    }, 
+    { 
+      icon: TrendingUp, 
+      title: 'AI Price Suggestions', 
+      description: 'Smart pricing based on verified car health and market trends', 
+    }, 
+  ]; 
+  const stats = [ 
+    { number: '50,000+', label: 'Verified Cars' }, 
+    { number: '2,500+', label: 'Partner Workshops' }, 
+   { number: '98%', label: 'Satisfaction Rate' }, 
+    { number: '₹500Cr+', label: 'Cars Sold' }, 
+  ]; 
+ 
+  return ( 
+    <div className="min-h-screen"> 
+      {/* Minimal Hero Section */} 
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center 
+overflow-hidden"> 
+        {/* Soft gradient background: lavender, blue, pink */} 
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-pink-50 
+dark:from-gray-900 dark:via-blue-900 dark:to-purple-900"></div> 
+ 
+        {/* Subtle background accents */} 
+        <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-blue-400/10 
+blur-2xl"></div> 
+        <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-fuchsia-400/10 
+blur-2xl"></div> 
+ 
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> 
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6"> 
+            The Future of 
+            <span className="block gradient-text">Auto Trading</span> 
+          </h1> 
+          <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl 
+mx-auto leading-relaxed"> 
+            A revolutionary car marketplace with verified reports from certified workshops. 
+          </p> 
+ 
+          <div className="flex flex-col sm:flex-row gap-4 justify-center"> 
+            <Link 
+              to="/login?role=buyer" 
+              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all 
+duration-300 transform hover:scale-105 shadow-sm" 
+            > 
+              <span className="inline-flex items-center gap-2">Explore Cars <ArrowRight 
+className="w-5 h-5" /></span> 
+            </Link> 
+            <Link 
+              to="/login?role=seller" 
+              className="px-8 py-4 bg-white/70 dark:bg-gray-800/60 backdrop-blur border 
+border-white/50 dark:border-gray-700 text-gray-800 dark:text-gray-200 font-semibold 
+rounded-xl hover:bg-white/90 dark:hover:bg-gray-800 transition-all duration-300 shadow-sm" 
+            > 
+              Sell Your Car 
+            </Link> 
+          </div> 
+ 
+          {/* Trust Indicators */} 
+          <div className="mt-10 flex flex-wrap justify-center items-center gap-6 text-sm 
+text-gray-500 dark:text-gray-400"> 
+            <div className="flex items-center space-x-2"> 
+              <CheckCircle className="w-5 h-5 text-green-500" /> 
+              <span>Verified Workshops</span> 
+            </div> 
+            <div className="flex items-center space-x-2"> 
+              <CheckCircle className="w-5 h-5 text-green-500" /> 
+              <span>OBD-II Reports</span> 
+            </div> 
+            <div className="flex items-center space-x-2"> 
+              <CheckCircle className="w-5 h-5 text-green-500" /> 
+              <span>AI Price Intelligence</span> 
+            </div> 
+          </div> 
+        </div> 
+          </section> 
+ 
+      {/* Stats Section */} 
+      <section className="py-20 glass dark:glass-dark"> 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8"> 
+            {stats.map((stat, index) => ( 
+              <div 
+                key={index} 
+                className="text-center animate-fade-in-scale" 
+                style={{ animationDelay: ${index * 150}ms }} 
+              > 
+                <div className="text-4xl md:text-5xl font-black gradient-text 
+mb-2">{stat.number}</div> 
+                <div className="text-gray-600 dark:text-gray-400 font-medium">{stat.label}</div> 
+              </div> 
+            ))} 
+          </div> 
+        </div> 
+      </section> 
+ 
+      {/* Features Section */} 
+      <section className="py-24"> 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+          <div className="text-center mb-16"> 
+            <h2 className="text-4xl md:text-5xl font-black gradient-text mb-4"> 
+              Why Choose WheelQuest? 
+            </h2> 
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"> 
+              We're revolutionizing the car marketplace with transparency, trust, and technology 
+            </p> 
+          </div> 
+             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"> 
+            {features.map((feature, index) => { 
+              const Icon = feature.icon; 
+              return ( 
+                <div 
+                  key={index} 
+                  className="group card-3d p-8 glass dark:glass-dark rounded-2xl text-center 
+animate-fade-in-scale" 
+                  style={{ animationDelay: ${index * 150}ms }} 
+                > 
+                  <div className="mb-6 relative"> 
+                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 
+to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 
+transition-transform duration-500"> 
+                      <Icon className="w-8 h-8 text-white" /> 
+                    </div> 
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 
+to-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div> 
+                  </div> 
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 
+mb-3">{feature.title}</h3> 
+                  <p className="text-gray-600 dark:text-gray-400 
+leading-relaxed">{feature.description}</p> 
+                </div> 
+              ); 
+            })} 
+          </div> 
+        </div> 
+      </section> 
+ 
+      {/* CTA Section */} 
+      <section className="py-24 relative overflow-hidden"> 
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700"></div>
+        <div className="absolute inset-0 bg-black/20"></div> 
+ 
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> 
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6"> 
+            Ready to Experience the Future? 
+          </h2> 
+          <p className="text-lg text-blue-100 mb-10 max-w-3xl mx-auto"> 
+            Join thousands of car buyers and sellers who trust WheelQuest for transparent, verified 
+transactions 
+          </p> 
+          <div className="flex flex-col sm:flex-row gap-4 justify-center"> 
+            <Link 
+              to="/marketplace" 
+              className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl 
+hover:bg-blue-50 transition-all duration-300 transform hover:scale-105" 
+            > 
+              Browse Verified Cars 
+            </Link> 
+            <Link 
+              to="/seller-dashboard" 
+              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl 
+hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105" 
+            > 
+              List Your Car 
+            </Link> 
+          </div> 
+        </div> 
+      </section> 
+    </div> 
+  ); 
+}; 
+ 
+export default HomePage;
+//Login page: 
+import React, { useEffect, useState } from 'react'; 
+import { useNavigate, useLocation } from 'react-router-dom'; 
+import { ShoppingCart, User, Wrench } from 'lucide-react'; 
+import { useAuth } from '../contexts/AuthContext'; 
+ 
+const LoginPage: React.FC = () => { 
+  const { login } = useAuth(); 
+  const navigate = useNavigate(); 
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState(''); 
+  const [selectedRole, setSelectedRole] = useState<'buyer' | 'seller' | 'workshop'>('buyer'); 
+  const location = useLocation(); 
+ 
+  useEffect(() => { 
+    const params = new URLSearchParams(location.search); 
+    const role = params.get('role'); 
+    if (role === 'buyer' || role === 'seller' || role === 'workshop') { 
+      setSelectedRole(role); 
+    } 
+  }, [location.search]); 
+ 
+  const handleSubmit = (e: React.FormEvent) => { 
+    e.preventDefault(); 
+    login(email, password, selectedRole); 
+    if (selectedRole === 'buyer') navigate('/marketplace'); 
+    else if (selectedRole === 'seller') navigate('/seller-dashboard'); 
+    else navigate('/workshop-dashboard'); 
+  }; 
+ 
+  const roles = [ 
+    { key: 'buyer' as const, label: 'Car Buyer', icon: ShoppingCart, desc: 'Find and buy verified 
+cars' }, { key: 'seller' as const, label: 'Car Seller', icon: User, desc: 'List and sell your car' }, 
+    { key: 'workshop' as const, label: 'Workshop', icon: Wrench, desc: 'Provide verification 
+services' }, 
+  ]; 
+ 
+  return ( 
+    <div className="min-h-screen pt-8"> 
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"> 
+        <div className="text-center mb-10"> 
+          <h1 className="text-4xl font-black gradient-text mb-2">Login</h1> 
+          <p className="text-gray-600 dark:text-gray-400">Choose your role and continue</p> 
+        </div> 
+ 
+        <div className="glass dark:glass-dark rounded-2xl p-8"> 
+          <form onSubmit={handleSubmit} className="space-y-8"> 
+            <div className="space-y-3"> 
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">I am 
+a:</label> 
+              {roles.map((r) => { 
+                const Icon = r.icon; 
+                const active = selectedRole === r.key; 
+                return ( 
+                  <button 
+                    key={r.key} 
+                    type="button" 
+                    onClick={() => setSelectedRole(r.key)} 
+                    className={w-full p-4 rounded-xl border-2 text-left transition-all ${active ? 
+'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-gray-200 dark:border-gray-700 
+hover:border-gray-300 dark:hover:border-gray-600'}} 
+                  > 
+                    <div className="flex items-center space-x-3"> 
+                      <Icon className={w-6 h-6 ${active ? 'text-blue-500' : 'text-gray-400'}} /> 
+                      <div>
+                      <div className="font-semibold text-gray-900 
+dark:text-gray-100">{r.label}</div> 
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{r.desc}</div> 
+                      </div> 
+                    </div> 
+                  </button> 
+                ); 
+              })} 
+            </div> 
+ 
+            <div> 
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 
+mb-2">Email</label> 
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 
+dark:border-gray-600 bg-white/50 dark:bg-gray-800/50 focus:ring-2 focus:ring-blue-500 
+focus:border-transparent" 
+                required 
+              /> 
+            </div> 
+ 
+            <div> 
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 
+mb-2">Password</label> 
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 
+dark:border-gray-600 bg-white/50 dark:bg-gray-800/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                required 
+              /> 
+            </div> 
+ 
+            <button type="submit" className="w-full py-3 bg-gradient-to-r from-blue-500 
+to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-lg 
+transition-all"> 
+              Continue 
+            </button> 
+          </form> 
+ 
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Demo app - 
+any email/password works</p> 
+        </div> 
+      </div> 
+    </div> 
+  ); 
+}; 
+ 
+export default LoginPage; 
